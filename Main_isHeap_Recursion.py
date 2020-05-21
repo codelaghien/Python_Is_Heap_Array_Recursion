@@ -6,12 +6,14 @@ def is_heap(arr, index, length):
     right = left + 1
     if left < length and arr[index] > arr[left]:
         return False
-    if right < length and array[index] > array[right]:
+    if right < length and arr[index] > arr[right]:
         return False
 
     left_ok = left > length - 1 or is_heap(arr, left, length)
+    if not left_ok:
+        return False
     right_ok = right > length - 1 or is_heap(arr, right, length)
-    return left_ok and right_ok
+    return right_ok
 
 
 array = [1, 5, 3, 7, 9, 8, 4]
